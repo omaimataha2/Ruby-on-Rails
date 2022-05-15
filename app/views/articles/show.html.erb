@@ -1,0 +1,22 @@
+<div class="container">
+<h1><%= @article.title %></h1>
+<p>Body: <%= @article.body %></p>
+<p>created_at: <%= @article.created_at %></p>
+<p>updated_at: <%= @article.updated_at %></p>
+
+
+
+  <button><%= link_to "Edit", edit_article_path(@article) %></button>
+  <button><%= link_to "Destroy", article_path(@article), data: {
+                    turbo_method: :delete,
+                    turbo_confirm: "Are you sure?"
+                  } %></button>
+ <button><%= link_to 'Back to Aricles', articles_path %></button>
+
+ <h2> show Comments </h2>
+ <%= render @article.comments %>
+ 
+ <h2>Add a comment:</h2>
+ <%= render 'comments/form' %>
+
+ </div>
